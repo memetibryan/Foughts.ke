@@ -1,6 +1,7 @@
 development:
   adapter: postgresql
   database: Foughts
+  host: localhost
 
 test:
   adapter: postgresql
