@@ -8,3 +8,8 @@ require("bundler/setup")
   get("/") do
     erb(:index)
   end
+
+  get("/events") do
+  	@events = Event.all()
+  	erb(:Events)
+  end

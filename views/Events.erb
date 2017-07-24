@@ -1,0 +1,10 @@
+<h1>All the Events:</h1>
+
+<% if @events.any?() %>
+	<ul>
+	<% @events.each do |event| %>
+	<li><% event.name() %></li>
+	</ul>
+
+	<% else %>
+	<p>There are no events yet!!!</p>
