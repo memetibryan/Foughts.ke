@@ -1,0 +1,12 @@
+<h1>All the Hosts:</h1>
+
+<% if @hosts.any?() %>
+	<ul>
+	  <% @hosts.each do |host| %>
+	  <li><p>Host Name:</p><a href="/hosts/<%= host.id()%>"><%= host.name() %></a><p>Tel:</p><%= host.Telephone() %><p>Email:</p><%= host.Email() %> <p>Created at:</p><%= host.created_at() %></li>
+	</ul>
+	<% end %>
+
+<% else %>
+	<p>There are no hosts yet!!!</p>
+<% end %>
