@@ -65,3 +65,9 @@ require("bundler/setup")
       erb(:errors)
     end
   end
+
+  get("/hosts/:id") do
+    @host = Host.all()
+    @events = Event.all()
+    erb(:host_details)
+  end

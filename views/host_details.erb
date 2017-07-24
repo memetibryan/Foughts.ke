@@ -1,0 +1,15 @@
+<h1><%= @host.name() %></h1>
+
+  <% if @host.events().any?() %>
+
+    <h3>Brands in <%= @host.name() %>:</h3>
+    <ul>
+      <% @host.events().each() do |event| %>
+        <li><%= event.name() %><p>Stocked On:</p><%= event.created_at() %></li>
+        <p><a href="/events/<%= event.id() %>/edit"><button class="button btn"> Edit <%= event.name() %> event</button></a></p>
+      <% end %>
+    </ul>
+  <% else %>
+    <p> <%= @host.name() %> has no Brands yet!</p>
+  <% end %>
+</div>
