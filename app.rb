@@ -30,7 +30,8 @@ require("bundler/setup")
     erb(:hosts)
   end
 
-  get("/event/new") do 
+  get("/event/new") do
+    @hosts = Host.all()
   	erb(:event_form)
   end
 
@@ -39,15 +40,18 @@ require("bundler/setup")
   end
 
   post("/events") do
-  	name = params.fetch(:name)
-  	description = params.fetch(:description)
-  	number_of_tickets = params.fetch(:number_of_tickets)
-  	event = Event.new({:name => name, :description => description, :number_of_tickets => number_of_tickets, :id => nil})
-  	if event.save()
-  		redirect("/events")
-  	else
-  		erb(:errors)
-  	end
+    name = params.fetch("name")
+    description = params.fetch("description")
+    number_of_tickets = params.fetch("number_of_tickets")
+    description = params.fetch("description")
+    event_id = params.fetch("event_id").to_i()
+    @host = Host.find(host_id)
+    @event = Event.new({:host_id => host_id,:name => name, :description => description, :number_of_tickets => number_of_tickets, :id => nil})
+    if event.save()
+      erb(:success)
+    else
+      erb(:errors)
+    end
   end
 
   post("/hosts") do
