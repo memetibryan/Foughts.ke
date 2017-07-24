@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: Foughts
+
+test:
+  adapter: postgresql
+  database: Foughts_test
