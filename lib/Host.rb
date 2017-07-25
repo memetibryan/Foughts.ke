@@ -1,5 +1,5 @@
 class Host < ActiveRecord::Base
-	has_many(:events)
+	has_many :events
 
 	#Active Record Validations making sure the form is not submitted blank
 	validates(:name, :presence => true)

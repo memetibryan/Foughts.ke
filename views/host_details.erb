@@ -5,7 +5,7 @@
     <h3>Brands in <%= @host.name() %>:</h3>
     <ul>
       <% @host.events().each() do |event| %>
-        <li><%= event.name() %><p>Stocked On:</p><%= event.created_at() %></li>
+        <li><%= event.name() %><p>Number of Tickeks:</p><%= event.number_of_tickets() %><p>Event Description:</p><%= event.description() %> <p>Held on:</p><%= event.created_at() %></li>
         <p><a href="/events/<%= event.id() %>/edit"><button class="button btn"> Edit <%= event.name() %> event</button></a></p>
       <% end %>
     </ul>
