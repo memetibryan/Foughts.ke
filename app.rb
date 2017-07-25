@@ -13,6 +13,11 @@ require("bundler/setup")
   	@events = Event.all()
   	erb(:events)
   end
+
+  get("/user") do
+    @users = User.all()
+    erb(:users)
+  end
   
 
   get("/host") do
@@ -30,6 +35,11 @@ require("bundler/setup")
     erb(:hosts)
   end
 
+  get("/users") do
+    @users = User.all()
+    erb(:users)
+  end
+
   get("/event/new") do
     @hosts = Host.all()
   	erb(:event_form)
@@ -37,6 +47,10 @@ require("bundler/setup")
 
   get("/host/new") do 
     erb(:host_form)
+  end
+
+  get("/user/new") do 
+    erb(:user_form)
   end
 
   post("/events") do
@@ -61,6 +75,18 @@ require("bundler/setup")
     host = Host.new({:name => name, :Telephone => Telephone, :Email => Email, :id => nil})
     if host.save()
       redirect("/hosts")
+    else
+      erb(:errors)
+    end
+  end
+
+  post("/users") do
+    name = params.fetch(:name)
+    Telephone = params.fetch(:Telephone)
+    Email = params.fetch(:Email)
+    user = User.new({:name => name, :Telephone => Telephone, :Email => Email, :id => nil})
+    if user.save()
+      redirect("/users")
     else
       erb(:errors)
     end
