@@ -1,0 +1,37 @@
+<h1><%= @user.name() %></h1>
+
+<div class = "row">
+<div class = "col-md-6">
+  <% if @user.events().any?() %>
+
+    <h3>Events <%= @user.name() %> is attending:</h3>
+    <ul>
+      <% @user.events().each() do |event| %>
+        <li><%= event.name() %><p>Going Down On:</p><%= event.created_at() %></li>
+        <p><a href="/events/<%= event.id() %>/edit"><button class="button btn"> Edit <%= event.name() %> event</button></a></p>
+      <% end %>
+    </ul>
+  <% else %>
+    <p> <%= @user.name() %> has no Events yet!</p>
+  <% end %>
+</div>
+
+<div class = "col-md-6">
+  <h3><%= @user.name() %>, Kindly Choose your Events:</h3>
+
+  <% if @events.any?() %>
+    <form action="/users/<%= @user.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <% @events.each() do |event| %>
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" name="event_ids[]" value="<%= event.id() %>"><%= event.name() %> <p>Going Down On:</p><%= event.created_at() %>
+          </label>
+        </div>
+      <% end %>
+
+      <button type="submit">Attend <%= @user.name() %></button>
+    </form>
+  <% end %>
+</div>
+</div>

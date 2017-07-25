@@ -13,6 +13,11 @@ require("bundler/setup")
   	@events = Event.all()
   	erb(:events)
   end
+
+  get("/user") do
+    @users = User.all()
+    erb(:users)
+  end
   
 
   get("/host") do
@@ -30,6 +35,11 @@ require("bundler/setup")
     erb(:hosts)
   end
 
+  get("/users") do
+    @users = User.all()
+    erb(:users)
+  end
+
   get("/event/new") do
     @hosts = Host.all()
   	erb(:event_form)
@@ -37,6 +47,16 @@ require("bundler/setup")
 
   get("/host/new") do 
     erb(:host_form)
+  end
+
+  get("/user/new") do 
+    erb(:user_form)
+  end
+
+  get('/users/:id') do
+    @events = Event.all()
+    @user = User.find(params.fetch("id").to_i())
+    erb(:user_details)
   end
 
   post("/events") do
@@ -64,4 +84,33 @@ require("bundler/setup")
     else
       erb(:errors)
     end
+  end
+
+  post("/users") do
+    name = params.fetch(:name)
+    Telephone = params.fetch(:Telephone)
+    Email = params.fetch(:Email)
+    user = User.new({:name => name, :Telephone => Telephone, :Email => Email, :id => nil})
+    if user.save()
+      redirect("/users")
+    else
+      erb(:errors)
+    end
+  end
+
+  patch("/users/:id") do
+    user_id = params.fetch("id").to_i()
+    @user = User.find(user_id)
+    event_ids = params.fetch("event_ids")
+    @user.update({:event_ids => event_ids})
+    @events = Event.all()
+    redirect("/users")
+  end
+
+  get("/hosts/:id") do
+    @event = Event.find(params.fetch("id").to_i())
+    @host = Host.all()
+    @events = Event.all()
+    @users = User.all()
+    erb(:host_details)
   end
