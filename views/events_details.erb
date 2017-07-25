@@ -1,0 +1,13 @@
+<h1><%= @event.name() %></h1>
+
+  <% if @event.users().any?() %>
+
+    <h3>Event <%= @event.name() %> is being attended by:</h3>
+    <ul>
+      <% @event.users().each() do |user| %>
+        <li><%= user.name() %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p> <%= @event.name() %> has no Events yet!</p>
+  <% end %>

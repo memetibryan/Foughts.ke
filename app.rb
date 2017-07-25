@@ -59,6 +59,18 @@ require("bundler/setup")
     erb(:user_details)
   end
 
+  get('/hosts/:id') do
+    @events = Event.all()
+    @host = Host.find(params.fetch("id").to_i())
+    erb(:host_details)
+  end
+
+  get('/events/:id') do
+    @users = User.all()
+    @event = Event.find(params.fetch("id").to_i())
+    erb(:events_details)
+  end
+
   post("/events") do
     name = params.fetch("name")
     description = params.fetch("description")
@@ -105,12 +117,4 @@ require("bundler/setup")
     @user.update({:event_ids => event_ids})
     @events = Event.all()
     redirect("/users")
-  end
-
-  get("/hosts/:id") do
-    @event = Event.find(params.fetch("id").to_i())
-    @host = Host.all()
-    @events = Event.all()
-    @users = User.all()
-    erb(:host_details)
   end
