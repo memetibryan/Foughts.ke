@@ -4,6 +4,7 @@
     <ul>
       <% @host.events().each() do |event| %>
         <li><%= event.name() %><p>Tickets:</p><%= event.number_of_tickets() %><p>Description:</p><%= event.description() %><p>Going Down On:</p><%= event.created_at() %></li>
+        <p><a href="/events/<%= event.id() %>/edit"><button class="button btn"> Edit <%= event.name() %> event</button></a></p>
       <% end %>
     </ul>
   <% else %>
