@@ -4,7 +4,7 @@ class Users < ActiveRecord::Migration[5.1]
   		t.column(:name, :varchar)
   		t.column(:Telephone, :integer)
   		t.column(:Email, :varchar)
-  		
+
   		t.timestamps()
   	end
   end

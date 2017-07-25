@@ -4,7 +4,6 @@ class Hosts < ActiveRecord::Migration[5.1]
   		t.column(:name, :string)
   		t.column(:Telephone, :integer)
   		t.column(:Email, :varchar)
-  		t.column(:Telephone, :integer)
 
   		t.timestamps()
   	end
