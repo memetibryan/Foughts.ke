@@ -3,8 +3,8 @@ class Events < ActiveRecord::Migration[5.1]
   	create_table(:events) do |t|
   		t.column(:host_id, :integer)
   		t.column(:name, :string)
-  		t.column(:description, :string)
-  		t.column(:number_of_tickets, :integer)
+  		t.column(:description, :text)
+  		t.column(:number_of_tickets, :bigint)
 
   		t.timestamps()
   	end

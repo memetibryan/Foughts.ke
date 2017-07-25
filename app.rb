@@ -118,3 +118,17 @@ require("bundler/setup")
     @events = Event.all()
     redirect("/users")
   end
+
+  delete("/events/:id") do
+    @event = Event.find(params.fetch("id").to_i())
+    if @event.destroy()
+      redirect("/host")
+    else
+      erb(:errors)
+    end
+  end
+
+  get("/events/:id/edit") do
+    @event = Event.find(params.fetch("id").to_i())
+    erb(:delete_event)
+  end
