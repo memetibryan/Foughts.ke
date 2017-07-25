@@ -1,0 +1,14 @@
+<h1><%= @user.name() %></h1>
+
+<% if @user.events().any?() %>
+
+    <h3>Brands in <%= @user.name() %>:</h3>
+    <ul>
+      <% @user.events().each() do |event| %>
+        <li><%= event.name() %><p>Stocked On:</p><%= event.created_at() %></li>
+        <p><a href="/events/<%= event.id() %>/edit"><button class="button btn"> Edit <%= event.name() %> event</button></a></p>
+      <% end %>
+    </ul>
+  <% else %>
+    <p> <%= @user.name() %> has no Brands yet!</p>
+  <% end %>

@@ -2,7 +2,7 @@ class Event < ActiveRecord::Base
 	belongs_to :host
 
 	has_many :users_events
-	has_many :users, through: :users_events
+	has_many :users, :through => :users_events
 
 	#Active Record Validations making sure the form is not submitted blank
 	validates(:name, :presence => true)
