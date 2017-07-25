@@ -1,5 +1,3 @@
-enable :sessions #for sessions
-
 require("bundler/setup")
   Bundler.require(:default)
   also_reload("lib/**/*.rb")
