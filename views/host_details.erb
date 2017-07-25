@@ -1,1 +1,7 @@
-<h1><%= @event.name() %></h1>
+<h1><%= @host.name() %></h1>
+
+<ul>
+  <% @events.any?() do |event| %>
+    <li><%= event.name() %><p>Going Down On:</p><%= event.created_at() %></li>
+  <% end %>
+</ul>
