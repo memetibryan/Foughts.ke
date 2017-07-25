@@ -4,7 +4,7 @@
 <div class = "col-md-6">
   <% if @user.events().any?() %>
 
-    <h3>Events in <%= @user.name() %>:</h3>
+    <h3>Events <%= @user.name() %> is attending:</h3>
     <ul>
       <% @user.events().each() do |event| %>
         <li><%= event.name() %><p>Going Down On:</p><%= event.created_at() %></li>
