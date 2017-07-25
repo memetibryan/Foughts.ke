@@ -1,12 +1,12 @@
-<% if @events.any?() %>
+<h3>Events <%= @host.name() %> is hosting:</h3>
 
-    <h3>Events <%= @host.name() %> is hosting:</h3>
+    <% if @events.any?() %>
     <ul>
       <% @host.events().each() do |event| %>
         <li><%= event.name() %><p>Tickets:</p><%= event.number_of_tickets() %><p>Description:</p><%= event.description() %><p>Going Down On:</p><%= event.created_at() %></li>
       <% end %>
     </ul>
   <% else %>
-    <p> <%= @host.name() %> has no Events yet!</p>
+    <p><%= @host.name() %> has no Events yet!</p>
   <% end %>
 </div>

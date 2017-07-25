@@ -65,6 +65,12 @@ require("bundler/setup")
     erb(:host_details)
   end
 
+  get('/events/:id') do
+    @users = User.all()
+    @event = Event.find(params.fetch("id").to_i())
+    erb(:events_details)
+  end
+
   post("/events") do
     name = params.fetch("name")
     description = params.fetch("description")
