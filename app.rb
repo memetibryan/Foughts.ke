@@ -39,6 +39,11 @@ require("bundler/setup")
     erb(:hosts)
   end
 
+  get("/notify") do
+    @auths = Authentication.all()
+    erb(:notify)
+  end
+
   get("/users") do
     @users = User.all()
     erb(:users)
@@ -80,10 +85,10 @@ require("bundler/setup")
     Email = params.fetch(:Email)
     auth = Authentication.new({:username => username,:Email => Email,:id => nil})
     if Authentication.exists?(Email: auth.Email)
-      erb(:notify)
+      erb(:errors)
     else
       auth.save()
-      redirect("/")
+      erb(:notify)
     end
   end
 
