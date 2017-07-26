@@ -85,7 +85,7 @@ require("bundler/setup")
     Email = params.fetch(:Email)
     auth = Authentication.new({:username => username,:Email => Email,:id => nil})
     if Authentication.exists?(Email: auth.Email)
-      erb(:errors)
+      erb(:exists)
     else
       auth.save()
       erb(:notify)
