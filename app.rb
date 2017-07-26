@@ -14,6 +14,16 @@ require("bundler/setup")
   	erb(:events)
   end
 
+  get("/authentication") do
+    @auths= Authentication.all()
+    erb(:auth)
+  end
+
+  get("/authentications") do
+    @auths= Authentication.all()
+    erb(:auth)
+  end
+
   get("/user") do
     @users = User.all()
     erb(:users)
@@ -53,6 +63,10 @@ require("bundler/setup")
     erb(:user_form)
   end
 
+  get("/authentication/new") do 
+    erb(:auth)
+  end
+
   get('/users/:id') do
     @events = Event.all()
     @user = User.find(params.fetch("id").to_i())
@@ -69,6 +83,16 @@ require("bundler/setup")
     @users = User.all()
     @event = Event.find(params.fetch("id").to_i())
     erb(:events_details)
+  end
+
+  post("/authentications") do
+    Email = params.fetch(:Email)
+    auth = Authentication.new({:Email => Email,:id => nil})
+    if Authentication.exists?(Email: auth.Email)
+      erb(:errors)
+    else
+      auth.save()
+    end
   end
 
   post("/events") do
