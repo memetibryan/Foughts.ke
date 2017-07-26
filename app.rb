@@ -38,12 +38,9 @@ require("bundler/setup")
   end
 
   get("/event") do
+    @hosts = Host.all()
   	@events = Event.all()
   	erb(:events)
-  end
-
-  get("/sign_up/new") do 
-    erb(:sign_up)
   end
 
   get("/user") do
@@ -58,6 +55,7 @@ require("bundler/setup")
   end
 
   get("/events") do
+    @hosts = Host.all()
   	@events = Event.all()
   	erb(:events)
   end
@@ -74,19 +72,6 @@ require("bundler/setup")
 
   get("/current_users") do
     erb(:current_users)
-  end
-
-  get("/event/new") do
-    @hosts = Host.all()
-  	erb(:event_form)
-  end
-
-  get("/host/new") do 
-    erb(:host_form)
-  end
-
-  get("/user/new") do 
-    erb(:user_form)
   end
 
   get('/users/:id') do
@@ -117,7 +102,7 @@ require("bundler/setup")
       erb(:errors)
     else
       auth.save()
-      erb(:current_users)
+      redirect("/current_users")
     end
   end
 
@@ -130,7 +115,7 @@ require("bundler/setup")
     @host = Host.find(host_id)
     event = Event.new({:host_id => host_id,:name => name, :description => description, :number_of_tickets => number_of_tickets, :id => nil})
     if event.save()
-      erb(:success)
+      redirect("/events")
     else
       erb(:errors)
     end
