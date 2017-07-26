@@ -1,4 +1,21 @@
-  <form action="/sign_ups" method="post">
+ <html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>jQuery UI Dialog - Default functionality</title>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css" />
+  <script>
+  $(function() {
+    $( "#dialog" ).dialog();
+  });
+  </script>
+</head>
+<body>
+
+<div id="dialog" title="Basic dialog">
+   <form action="/sign_ups" method="post">
     <label for="username">Username:</label>
     <input id="username" name="username" type="text" class="rq-form-element" autofocus/>
 
@@ -7,3 +24,9 @@
 
     <button type="submit">Register!</button>
   </form>
+  <a href="/"><button class="button btn">Cancel</button></a>
+</div>
+
+
+</body>
+</html>
