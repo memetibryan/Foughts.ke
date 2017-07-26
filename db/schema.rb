@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20170726060243) do
   enable_extension "plpgsql"
 
   create_table "authentications", force: :cascade do |t|
+    t.string "username"
     t.text "Email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

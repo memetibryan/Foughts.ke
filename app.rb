@@ -76,12 +76,14 @@ require("bundler/setup")
   end
 
   post("/sign_ups") do
+    username = params.fetch(:username)
     Email = params.fetch(:Email)
-    auth = Authentication.new({:Email => Email,:id => nil})
+    auth = Authentication.new({:username => username,:Email => Email,:id => nil})
     if Authentication.exists?(Email: auth.Email)
-      erb(:errors)
+      erb(:notify)
     else
       auth.save()
+      redirect("/")
     end
   end
 
