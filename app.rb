@@ -4,13 +4,37 @@ require("bundler/setup")
 
   Dir[File.dirname(__FILE__) + '/lib/*.rb'].each { |file| require file } #loading individual files when required
 
+  enable :sessions
+
+  #sessions
+  post "/current_users" do
+    @name = params["name"]
+    @email = params["email"]
+    session[:message] = "Welcome to your Account #{@name}. Email- #{@email}"
+    redirect "/notify?name=#{@name}"
+  end
+
   #loads first web page 'index'
   get("/") do
     erb(:index)
   end
 
   get("/logout") do
-    erb(:index)
+    @message = session.delete(:message)
+    @name = params["name"]
+    @email = params["email"]
+    redirect("/")
+  end
+
+  get("/notify") do
+    @message = session[:message]
+    @name = params["name"]
+    @email = params["email"]
+    if Authentication.exists?(authentications: {username: @name})
+      erb(:notify)
+    else
+      erb(:no_user)
+    end
   end
 
   get("/event") do
@@ -43,14 +67,13 @@ require("bundler/setup")
     erb(:hosts)
   end
 
-  get("/notify") do
-    @auths = Authentication.all()
-    erb(:notify)
-  end
-
   get("/users") do
     @users = User.all()
     erb(:users)
+  end
+
+  get("/current_users") do
+    erb(:current_users)
   end
 
   get("/event/new") do
@@ -92,7 +115,7 @@ require("bundler/setup")
       erb(:exists)
     else
       auth.save()
-      erb(:notify)
+      erb(:current_users)
     end
   end
 
