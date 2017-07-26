@@ -115,7 +115,7 @@ require("bundler/setup")
     @host = Host.find(host_id)
     event = Event.new({:host_id => host_id,:name => name, :description => description, :number_of_tickets => number_of_tickets, :id => nil})
     if event.save()
-      erb(:success)
+      redirect("/events")
     else
       erb(:errors)
     end
