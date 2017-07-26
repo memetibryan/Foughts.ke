@@ -14,6 +14,10 @@ require("bundler/setup")
   	erb(:events)
   end
 
+  get("/sign_up/new") do 
+    erb(:sign_up)
+  end
+
   get("/user") do
     @users = User.all()
     erb(:users)
@@ -33,6 +37,11 @@ require("bundler/setup")
   get("/hosts") do
     @hosts = Host.all()
     erb(:hosts)
+  end
+
+  get("/notify") do
+    @auths = Authentication.all()
+    erb(:notify)
   end
 
   get("/users") do
@@ -69,6 +78,18 @@ require("bundler/setup")
     @users = User.all()
     @event = Event.find(params.fetch("id").to_i())
     erb(:events_details)
+  end
+
+  post("/sign_ups") do
+    username = params.fetch(:username)
+    Email = params.fetch(:Email)
+    auth = Authentication.new({:username => username,:Email => Email,:id => nil})
+    if Authentication.exists?(Email: auth.Email)
+      erb(:exists)
+    else
+      auth.save()
+      erb(:notify)
+    end
   end
 
   post("/events") do
