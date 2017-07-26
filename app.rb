@@ -10,7 +10,7 @@ require("bundler/setup")
   post "/current_users" do
     @name = params["name"]
     @email = params["email"]
-    session[:message] = "Welcome to your account #{@name}."
+    session[:message] = "Welcome to your Account #{@name}. Email- #{@email}"
     redirect "/notify?name=#{@name}"
   end
 
@@ -30,7 +30,7 @@ require("bundler/setup")
     @message = session[:message]
     @name = params["name"]
     @email = params["email"]
-    if Authentication.exists?(username: @name)
+    if Authentication.exists?(authentications: {username: @name})
       erb(:notify)
     else
       erb(:no_user)
