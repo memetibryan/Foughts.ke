@@ -9,6 +9,7 @@ require("bundler/setup")
   #sessions
   post "/current_users" do
     @name = params["name"]
+    @email = params["email"]
     session[:message] = "Welcome to your account #{@name}."
     redirect "/notify?name=#{@name}"
   end
@@ -21,14 +22,19 @@ require("bundler/setup")
   get("/logout") do
     @message = session.delete(:message)
     @name = params["name"]
+    @email = params["email"]
     redirect("/")
   end
 
   get("/notify") do
     @message = session[:message]
     @name = params["name"]
-    @auths = Authentication.all()
-    erb(:notify)
+    @email = params["email"]
+    if Authentication.exists?(username: @name)
+      erb(:notify)
+    else
+      erb(:no_user)
+    end
   end
 
   get("/event") do
