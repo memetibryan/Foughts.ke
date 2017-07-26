@@ -10,7 +10,7 @@ require("bundler/setup")
   post "/current_users" do
     @name = params["name"]
     @email = params["email"]
-    if Authentication.exists?(authentications: {username: @name})
+    if Authentication.exists?(authentications: {username: @name, Email: @email})
       session[:message] = "Welcome #{@name}"
       redirect "/index?name=#{@name}"
     else

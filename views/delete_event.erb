@@ -1,19 +1,4 @@
-<h2>Update <%=@event.name() %> </h2>
-
-
-  <form action="/events/<%= @event.id() %>" method="post">
-    <input name="_method" type="hidden" value="patch">
-    <label for="name">Rename <%=@event.name() %>:</label>
-    <input id="name" name="name" type="text">
-
-    <label for="description">Rename <%=@event.name() %>:</label>
-    <input id="description" name="description" type="text">
-
-    <label for="number_of_tickets">Rename <%=@event.name() %>:</label>
-    <input id="number_of_tickets" name="number_of_tickets" type="text">
-
-    <button type="submit">Update</button>
-  </form>
+<h2><%=@event.name() %> </h2>
 
   <form action="/events/<%= @event.id() %>" method="post">
     <input name="_method" type="hidden" value="delete">
