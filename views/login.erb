@@ -1,20 +1,3 @@
-<div class="row">
-<div class="col-md-6">
-<h1>All the Hosts:</h1>
-
-<% if @hosts.any?() %>
-    <ul>
-      <% @hosts.each do |host| %>
-      <li><p>Host Name:</p><a href="/hosts/<%= host.id()%>"><%= host.name() %></a><p>Tel:</p><%= host.Telephone() %><p>Email:</p><%= host.Email() %> <p>Created at:</p><%= host.created_at() %></li>
-    </ul>
-    <% end %>
-
-<% else %>
-    <p>There are no hosts yet!!!</p>
-<% end %>
-</div>
-
-<div class="col-md-6">
 <!DOCTYPE html>
 <html>
 <head>
@@ -34,9 +17,8 @@
 </head>
 
 <body>
-
 <!-- Trigger/Open The Modal -->
-<button id="myBtn" class="button btn">New Host</button></a>
+<button id="myBtn" class="button btn">My Account</button></a>
 
 <!-- The Modal -->
 <div id="myModal" class="modal">
@@ -44,18 +26,16 @@
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <form action="/hosts" method="post">
-    <label for="name">Host's name:</label>
-    <input id="name" name="name" type="text" class="rq-form-element" autofocus/>
-
-    <label for="Telephone">Telephone:</label>
-    <input id="Telephone" name="Telephone" type="text" class="rq-form-element" autofocus/>
+   <form action="/sign_ups" method="post">
+    <label for="username">Username:</label>
+    <input id="username" name="username" type="text" class="rq-form-element" autofocus/>
 
     <label for="Email">Email:</label>
     <input id="Email" name="Email" type="text" class="rq-form-element" autofocus/>
 
-    <button type="submit">Submit!</button>
-</form>
+    <button type="submit">Register!</button>
+  </form>
+  <a href="/current_users"><button class="button btn">Already am memeber?</button></a>
   </div>
 
 </div>
@@ -90,5 +70,3 @@ window.onclick = function(event) {
 
 </body>
 </html>
-</div>
-</div>
