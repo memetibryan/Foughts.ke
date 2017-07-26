@@ -3,19 +3,23 @@
 
 <head>
   <title>Bryan Memeti</title>
-  <!--Google sign in Authentication-->
-  <!-- <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
-  <div class="g-signin2" data-onsuccess="onSignIn"></div> -->
-  <!--Google sign in Authentication-->
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!--my links to bootstrap and CSS-->
+  <!--materialize-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <!--materialize-->
+
+    <!--my links to bootstrap and CSS-->
   <link rel="stylesheet" href="/styles.css">
 </head>
   
-    <body>
-      <div class="container">
-        <%= yield %>
-      </div>
-    </body>
-  </html>
+  <body>
+    <div class="container">
+      <%= yield %>
+    </div>
+  </body>
+</html>

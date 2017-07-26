@@ -1,16 +1,20 @@
+<div class="row">
+<div class="col-md-6">
 <h1>All the Hosts:</h1>
 
 <% if @hosts.any?() %>
-	<ul>
-	  <% @hosts.each do |host| %>
-	  <li><p>Host Name:</p><a href="/hosts/<%= host.id()%>"><%= host.name() %></a><p>Tel:</p><%= host.Telephone() %><p>Email:</p><%= host.Email() %> <p>Created at:</p><%= host.created_at() %></li>
-	</ul>
-	<% end %>
+    <ul>
+      <% @hosts.each do |host| %>
+      <li><p>Host Name:</p><a href="/hosts/<%= host.id()%>"><%= host.name() %></a><p>Tel:</p><%= host.Telephone() %><p>Email:</p><%= host.Email() %> <p>Created at:</p><%= host.created_at() %></li>
+    </ul>
+    <% end %>
 
 <% else %>
-	<p>There are no hosts yet!!!</p>
+    <p>There are no hosts yet!!!</p>
 <% end %>
+</div>
 
+<div class="col-md-6">
 <!DOCTYPE html>
 <html>
 <body>
@@ -70,3 +74,5 @@ window.onclick = function(event) {
 
 </body>
 </html>
+</div>
+</div>

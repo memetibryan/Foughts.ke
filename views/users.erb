@@ -1,16 +1,20 @@
+<div class="row">
+<div class="col-md-6">
 <h1>All the Users:</h1>
 
 <% if @users.any?() %>
-	<ul>
-	  <% @users.each do |user| %>
-	  <li><p>User Name:</p><a href="/users/<%= user.id()%>"><%= user.name() %></a><p>Tel:</p><%= user.Telephone() %><p>Email:</p><%= user.Email() %> <p>Created at:</p><%= user.created_at() %></li>
-	</ul>
-	<% end %>
+  <ul>
+    <% @users.each do |user| %>
+    <li><p>User Name:</p><a href="/users/<%= user.id()%>"><%= user.name() %></a><p>Tel:</p><%= user.Telephone() %><p>Email:</p><%= user.Email() %> <p>Created at:</p><%= user.created_at() %></li>
+  </ul>
+  <% end %>
 
 <% else %>
-	<p>There are no users yet!!!</p>
+  <p>There are no users yet!!!</p>
 <% end %>
+</div>
 
+<div class="col-md-6">
 <!DOCTYPE html>
 <html>
 <body>
@@ -70,3 +74,5 @@ window.onclick = function(event) {
 
 </body>
 </html>
+</div>
+</div>
