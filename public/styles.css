@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Dosis|Jaldi|Ubuntu|Baloo+Bhaina|Courgette|Great+Vibes|Montserrat|Patua+One|Raleway');
+
+/*font-family: 'Montserrat', sans-serif;
+font-family: 'Raleway', sans-serif;
+font-family: 'Patua One', cursive;
+font-family: 'Courgette', cursive;
+font-family: 'Baloo Bhaina', cursive;
+font-family: 'Great Vibes', cursive;
+font-family: 'Dosis', sans-serif;
+font-family: 'Jaldi', sans-serif;
+font-family: 'Ubuntu', sans-serif;*/
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -14,16 +26,16 @@
 
 /* Modal Content */
 .modal-content {
-    background-color: #fefefe;
+    background-color: white;
     margin: auto;
     padding: 20px;
-    border: 1px solid #888;
+    border: 80px solid #888;
     width: 80%;
 }
 
 /* The Close Button */
 .close {
-    color: #aaaaaa;
+    color: red;
     float: right;
     font-size: 28px;
     font-weight: bold;
