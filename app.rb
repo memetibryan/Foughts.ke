@@ -9,6 +9,10 @@ require("bundler/setup")
     erb(:index)
   end
 
+  get("/logout") do
+    erb(:index)
+  end
+
   get("/event") do
   	@events = Event.all()
   	erb(:events)
