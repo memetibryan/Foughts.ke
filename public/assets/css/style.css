@@ -12,6 +12,41 @@
 /*==========================================
 PRE LOADER
 ==========================================*/
+.africa{
+  color: white;
+}
+.events{
+  background-image: url("/assets/images/city.jpg");
+  color: white;
+  font-size: 30px;
+  background-position: center;
+    -moz-background-size: cover;
+        background-size: cover;
+}
+
+.hosts{
+  background-image: url("/assets/images/city.jpg");
+  color: white;
+  font-size: 30px;
+  background-position: center;
+    -moz-background-size: cover;
+        background-size: cover;
+
+}
+
+.users{
+  background-image: url("/assets/images/city.jpg");
+  color: white;
+  font-size: 30px;
+  background-position: center;
+    -moz-background-size: cover;
+        background-size: cover;
+
+}
+.login{
+  color: white;
+}
+
 .preloader {
     position: fixed;
     top: 0;
