@@ -56,6 +56,10 @@ require("bundler/setup")
     erb(:hosts)
   end
 
+  get("/ticket_form") do
+    erb(:ticket_form)
+  end
+
   get("/events") do
     @hosts = Host.all()
   	@events = Event.all()
@@ -133,6 +137,14 @@ require("bundler/setup")
     else
       erb(:errors)
     end
+  end
+
+  post("/tickets") do
+    name = params.fetch(:name)
+    Telephone = params.fetch(:Telephone)
+    Email = params.fetch(:Email)
+    ticket = params.fetch(:tickets)
+    redirect  "https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=" + (name + " - " + " Telephone "+ Telephone + " - " + " Tickets " +ticket)
   end
 
   post("/users") do
