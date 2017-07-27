@@ -44,6 +44,28 @@ PRE LOADER
 
 }
 
+.details{
+  background-image: url("/assets/images/cool.jpg");
+  color: black;
+  font-size: 30px;
+  background-position: center;
+    -moz-background-size: cover;
+        background-size: cover;
+}
+
+.host_details{
+  background-image: url("/assets/images/images.jpg");
+  color: black;
+  font-size: 30px;
+  background-position: center;
+    -moz-background-size: cover;
+        background-size: cover;
+}
+
+.float{
+  float: center;
+}
+
 .button{
   background-color: lightblue;
   border: none;
