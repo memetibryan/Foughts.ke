@@ -7,34 +7,34 @@
     <ul>
       <% @events.each do |event| %>
       <li>
-        <p>Event Name:</p>
+        <h4>Event Name:</h4>
         <a href="/events/<%= event.id()%>"><%= event.name() %></a>
-        <p>Number of Tickets:</p><%= event.number_of_tickets() %>
-        <p>Event Description:</p><%= event.description() %>
-        <p>Held on:</p><%= event.created_at() %></li>
+        <h4>Number of Tickets:</h4><%= event.number_of_tickets() %>
+        <h4>Event Description:</h4><%= event.description() %>
+        <h4>Held on:</h4><%= event.created_at() %></li>
     </ul>
     <% end %>
 
   <% else %>
-    <p>There are no events yet!!!</p>
+    <h4>There are no events yet!!!</h4>
     <% end %>
   </div>
 
   <p>
     <a href="/index">
-      <button class="button btn">
+      <button class="button button1">
         HOME</button>
     </a>
   </p>
   <p>
     <a href="/events">
-      <button class="button btn">
+      <button class="button button1">
         EVENTS</button>
     </a>
   </p>
   <p>
     <a href="/hosts">
-      <button class="button btn">
+      <button class="button button1">
         HOSTS</button>
     </a>
   </p>
@@ -45,7 +45,7 @@
       <body>
 
         <!-- Trigger/Open The Modal -->
-        <button id="myBtn" class="button btn">New Event</button>
+        <button id="myBtn" class="button button1">New Event</button>
       </a>
 
       <!-- The Modal -->
