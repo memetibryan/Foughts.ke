@@ -1,97 +1,121 @@
 <div class="row users">
-<div class="col-md-6">
-<h1>All the Users:</h1>
+  <div class="col-md-6">
+    <div class="float">
+      <button id="myBtn" class="button button1">New User</button>
+    </div>
+    <h2>All the Users:</h2>
 
-<% if @users.any?() %>
-  <ul>
-    <% @users.each do |user| %>
-    <li><p>User Name:</p><a href="/users/<%= user.id()%>"><%= user.name() %></a><p>Tel:</p><%= user.Telephone() %><p>Email:</p><%= user.Email() %> <p>Created at:</p><%= user.created_at() %></li>
-  </ul>
-  <% end %>
+    <% if @users.any?() %>
+    <ul>
+      <% @users.each do |user| %>
+      <li>
+        <h4>User Name:</h4>
+        <a href="/users/<%= user.id()%>"><%= user.name() %></a>
+        <h4>Tel:</h4><%= user.Telephone() %>
+        <h4>Email:</h4><%= user.Email() %>
+        <h4>Created at:</h4><%= user.created_at() %></li>
+    </ul>
+    <% end %>
 
-<% else %>
-  <p>There are no users yet!!!</p>
-<% end %>
-</div>
-
-<div class="col-md-6">
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Bryan Memeti</title>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!--materialize-->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
-  <!--materialize-->
-
-    <!--my links to bootstrap and CSS-->
-  <link rel="stylesheet" href="/styles.css">
-</head>
-
-<body>
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn" class="button btn">New User</button></a>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-   <form action="/users" method="post">
-    <label for="name">User's name:</label>
-    <input id="name" name="name" type="text" class="rq-form-element" autofocus/>
-
-    <label for="Telephone">Telephone:</label>
-    <input id="Telephone" name="Telephone" type="number" class="rq-form-element" autofocus/>
-
-    <label for="Email">Email:</label>
-    <input id="Email" name="Email" type="email" class="rq-form-element" autofocus/>
-
-    <button class="btn btn-info" type="submit">Submit!</button>
-  </form>
+  <% else %>
+    <h4>There are no users yet!!!</h4>
+    <% end %>
+    <p>
+      <a href="/index">
+        <button class="button button1">
+          HOME</button>
+      </a>
+    </p>
+    <p>
+      <a href="/events">
+        <button class="button button1">
+          EVENTS</button>
+      </a>
+    </p>
+    <p>
+      <a href="/hosts">
+        <button class="button button1">
+          HOSTS</button>
+      </a>
+    </p>
   </div>
 
+  <div class="col-md-6">
+    <!DOCTYPE html>
+    <html>
+      <head>
+        <title>Bryan Memeti</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <!--materialize-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+        <!--materialize-->
+
+        <!--my links to bootstrap and CSS-->
+        <link rel="stylesheet" href="/styles.css">
+      </head>
+
+      <body>
+
+        <!-- Trigger/Open The Modal -->
+      </a>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form action="/users" method="post">
+            <label for="name">User's name:</label>
+            <input id="name" name="name" type="text" class="rq-form-element" autofocus/>
+
+            <label for="Telephone">Telephone:</label>
+            <input id="Telephone" name="Telephone" type="number" class="rq-form-element" autofocus/>
+
+            <label for="Email">Email:</label>
+            <input id="Email" name="Email" type="email" class="rq-form-element" autofocus/>
+
+            <button class="btn btn-info" type="submit">Submit!</button>
+          </form>
+        </div>
+
+      </div>
+
+      <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+          modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      </script>
+
+    </body>
+  </html>
 </div>
 
-<script>
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
-</body>
-</html>
-</div>
-<p><a href="/index"><button class="button btn"> HOME</button></a></p>
-<p><a href="/events"><button class="button btn"> EVENTS</button></a></p>
-<p><a href="/hosts"><button class="button btn"> HOSTS</button></a></p>
 </div>
