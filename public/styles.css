@@ -10,10 +10,6 @@ font-family: 'Dosis', sans-serif;
 font-family: 'Jaldi', sans-serif;
 font-family: 'Ubuntu', sans-serif;*/
 
-.africa {
-  color: white;
-}
-
 .modal {
   display: none;
   /* Hidden by default */
@@ -62,8 +58,4 @@ font-family: 'Ubuntu', sans-serif;*/
   color: #000;
   text-decoration: none;
   cursor: pointer;
-}
-
-.events {
-  background-image: ;
 }
