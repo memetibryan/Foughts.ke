@@ -17,7 +17,7 @@ PRE LOADER
 }
 .events{
   background-image: url("/assets/images/city.jpg");
-  color: white;
+  color: darkred;
   font-size: 30px;
   background-position: center;
     -moz-background-size: cover;
@@ -26,7 +26,7 @@ PRE LOADER
 
 .hosts{
   background-image: url("/assets/images/city.jpg");
-  color: white;
+  color: darkred;
   font-size: 30px;
   background-position: center;
     -moz-background-size: cover;
@@ -36,7 +36,7 @@ PRE LOADER
 
 .users{
   background-image: url("/assets/images/city.jpg");
-  color: white;
+  color: darkred;
   font-size: 30px;
   background-position: center;
     -moz-background-size: cover;
