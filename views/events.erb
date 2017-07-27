@@ -1,87 +1,113 @@
-<div class="row">
-<div class="col-md-6">
-<h1>All the Events:</h1>
+<div class="row events">
+  <div class="col-md-6">
+    <br>
+    <h1>All the Events:</h1>
 
-<% if @events.any?() %>
-  <ul>
-    <% @events.each do |event| %>
-    <li><p>Event Name:</p><a href="/events/<%= event.id()%>"><%= event.name() %></a><p>Number of Tickets:</p><%= event.number_of_tickets() %><p>Event Description:</p><%= event.description() %> <p>Held on:</p><%= event.created_at() %></li>
-  </ul>
-  <% end %>
+    <% if @events.any?() %>
+    <ul>
+      <% @events.each do |event| %>
+      <li>
+        <p>Event Name:</p>
+        <a href="/events/<%= event.id()%>"><%= event.name() %></a>
+        <p>Number of Tickets:</p><%= event.number_of_tickets() %>
+        <p>Event Description:</p><%= event.description() %>
+        <p>Held on:</p><%= event.created_at() %></li>
+    </ul>
+    <% end %>
 
-<% else %>
-  <p>There are no events yet!!!</p>
-<% end %>
-</div>
-<div class="col-md-6">
-<!DOCTYPE html>
-<html>
-<body>
-
-<!-- Trigger/Open The Modal -->
-<button id="myBtn" class="button btn">New Event</button></a>
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-   <form action="/events" method="post">
-    <label for="host_id">Select a List</label>
-    <select id='host_id' name='host_id' type='text'>
-      <% @hosts.each() do |host| %>
-        <option value="<%= host.id()%>"> <%= host.name() %> </option>
-      <% end %>
-    </select>
-
-    <label for="name">Event's name:</label>
-    <input id="name" name="name" type="text" class="rq-form-element" autofocus/>
-
-    <label for="description">Event's description:</label>
-    <input id="description" name="description" type="text" class="rq-form-element" autofocus/>
-
-    <label for="number_of_tickets">Event's Number of Tickets:</label>
-    <input id="number_of_tickets" name="number_of_tickets" type="number" class="rq-form-element" autofocus/>
-
-    <button type="submit">Submit!</button>
-</form>
+  <% else %>
+    <p>There are no events yet!!!</p>
+    <% end %>
   </div>
 
+  <p>
+    <a href="/index">
+      <button class="button btn">
+        HOME</button>
+    </a>
+  </p>
+  <p>
+    <a href="/events">
+      <button class="button btn">
+        EVENTS</button>
+    </a>
+  </p>
+  <p>
+    <a href="/hosts">
+      <button class="button btn">
+        HOSTS</button>
+    </a>
+  </p>
+
+  <div class="col-md-6">
+    <!DOCTYPE html>
+    <html>
+      <body>
+
+        <!-- Trigger/Open The Modal -->
+        <button id="myBtn" class="button btn">New Event</button>
+      </a>
+
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <form action="/events" method="post">
+            <label for="host_id">Select a List</label>
+            <select id='host_id' name='host_id' type='text'>
+              <% @hosts.each() do |host| %>
+              <option value="<%= host.id()%>">
+                <%= host.name() %>
+              </option>
+              <% end %>
+            </select>
+
+            <label for="name">Event's name:</label>
+            <input id="name" name="name" type="text" class="rq-form-element" autofocus/>
+
+            <label for="description">Event's description:</label>
+            <input id="description" name="description" type="text" class="rq-form-element" autofocus/>
+
+            <label for="number_of_tickets">Event's Number of Tickets:</label>
+            <input id="number_of_tickets" name="number_of_tickets" type="number" class="rq-form-element" autofocus/>
+
+            <button type="submit">Submit!</button>
+          </form>
+        </div>
+
+      </div>
+
+      <script>
+        // Get the modal
+        var modal = document.getElementById('myModal');
+
+        // Get the button that opens the modal
+        var btn = document.getElementById("myBtn");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks the button, open the modal
+        btn.onclick = function () {
+          modal.style.display = "block";
+        }
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+          modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      </script>
+
+    </body>
+  </html>
 </div>
-
-<script>
-// Get the modal
-var modal = document.getElementById('myModal');
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
-
-</body>
-</html>
-</div>
-<p><a href="/index"><button class="button btn"> HOME</button></a></p>
-<p><a href="/events"><button class="button btn"> EVENTS</button></a></p>
-<p><a href="/hosts"><button class="button btn"> HOSTS</button></a></p>
 </div>
