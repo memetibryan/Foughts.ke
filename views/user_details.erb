@@ -1,3 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bryan Memeti</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!--materialize-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+  <!--materialize-->
+
+    <!--my links to bootstrap and CSS-->
+  <link rel="stylesheet" href="/styles.css"> 
+</head>
+
+<body>
 <h1><%= @user.name() %></h1>
 
 <div class = "row">
@@ -24,7 +43,7 @@
       <% @events.each() do |event| %>
         <div class="checkbox">
           <label>
-            <input type="checkbox" name="event_ids[]" value="<%= event.id() %>"><%= event.name() %> <p>Going Down On:</p><%= event.created_at() %>
+            <input type="checkbox" name="event_ids[]" value="<%= event.id() %>" id="<%= event.id() %>"> <label for="<%= event.id() %>"><%= event.name() %> <p>Going Down On:</p><%= event.created_at() %>
           </label>
         </div>
       <% end %>
@@ -34,3 +53,5 @@
   <% end %>
 </div>
 </div>
+</body>
+</html>
