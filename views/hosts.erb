@@ -6,33 +6,33 @@
     <ul>
       <% @hosts.each do |host| %>
       <li>
-        <p>Host Name:</p>
+        <h4>Host Name:</h4>
         <a href="/hosts/<%= host.id()%>"><%= host.name() %></a>
-        <p>Tel:</p><%= host.Telephone() %>
-        <p>Email:</p><%= host.Email() %>
-        <p>Created at:</p><%= host.created_at() %></li>
+        <h4>Tel:</h4><%= host.Telephone() %>
+        <h4>Email:</h4><%= host.Email() %>
+        <h4>Created at:</h4><%= host.created_at() %></li>
     </ul>
     <% end %>
 
   <% else %>
-    <p>There are no hosts yet!!!</p>
+    <h4>There are no hosts yet!!!</h4>
     <% end %>
   </div>
   <p>
     <a href="/index">
-      <button class="button btn">
+      <button class="button button1">
         HOME</button>
     </a>
   </p>
   <p>
     <a href="/events">
-      <button class="button btn">
+      <button class="button button1">
         EVENTS</button>
     </a>
   </p>
   <p>
     <a href="/hosts">
-      <button class="button btn">
+      <button class="button button1">
         HOSTS</button>
     </a>
   </p>
@@ -59,7 +59,7 @@
       <body>
 
         <!-- Trigger/Open The Modal -->
-        <button id="myBtn" class="button btn">New Host</button>
+        <button id="myBtn" class="button button1">New Host</button>
       </a>
 
       <!-- The Modal -->
