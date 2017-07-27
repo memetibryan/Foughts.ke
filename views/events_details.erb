@@ -1,16 +1,39 @@
-<h1><%= @event.name() %></h1>
+<div class="row details">
+
+  <h1><%= @event.name() %></h1>
 
   <% if @event.users().any?() %>
 
-    <h3>Event <%= @event.name() %> is being attended by:</h3>
-    <ul>
-      <% @event.users().each() do |user| %>
-        <li><%= user.name() %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p> <%= @event.name() %> has no Attenders yet!</p>
+  <h3>Event
+    <%= @event.name() %>
+    is being attended by:</h3>
+  <ul>
+    <% @event.users().each() do |user| %>
+    <li><%= user.name() %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>
+    <%= @event.name() %>
+    has no Attenders yet!</p>
   <% end %>
 
-
-<p><a href="/index"><button class="button btn"> HOME</button></a></p>
+<p>
+  <a href="/index">
+    <button class="button button1">
+      HOME</button>
+  </a>
+</p>
+<p>
+  <a href="/events">
+    <button class="button button1">
+      EVENTS</button>
+  </a>
+</p>
+<p>
+  <a href="/hosts">
+    <button class="button button1">
+      HOSTS</button>
+  </a>
+</p>
+</div>
