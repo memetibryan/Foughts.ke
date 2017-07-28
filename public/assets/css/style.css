@@ -16,7 +16,7 @@ PRE LOADER
   color: white;
 }
 .events{
-  background-image: url("/assets/images/galaxy.jpg");
+  /*background-image: url("/assets/images/africa.jpg");*/
   color: black;
   font-size: 30px;
   background-position: center;
@@ -25,7 +25,7 @@ PRE LOADER
 }
 
 .hosts{
-  background-image: url("/assets/images/cool.jpg");
+  /*background-image: url("/assets/images/hosts.png");*/
   color: black;
   font-size: 30px;
   background-position: center;
@@ -35,7 +35,7 @@ PRE LOADER
 }
 
 .users{
-  background-image: url("/assets/images/cool.jpg");
+  /*background-image: url("/assets/images/africa.jpg");*/
   color: black;
   font-size: 30px;
   background-position: center;
@@ -45,7 +45,7 @@ PRE LOADER
 }
 
 .details{
-  background-image: url("/assets/images/cool.jpg");
+  /*background-image: url("/assets/images/africa.jpg");*/
   color: black;
   font-size: 30px;
   background-position: center;
@@ -54,7 +54,7 @@ PRE LOADER
 }
 
 .host_details{
-  background-image: url("/assets/images/images.jpg");
+  /*background-image: url("/assets/images/hosts.png");*/
   color: black;
   font-size: 30px;
   background-position: center;
